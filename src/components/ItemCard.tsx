@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Package, MapPin, Hash, DollarSign } from "lucide-react";
+import { Package, MapPin, Hash } from "lucide-react";
 
 export interface Item {
   codigo: string;
@@ -37,28 +37,16 @@ export const ItemCard = ({ item }: ItemCardProps) => {
           <p className="font-semibold text-lg text-foreground">{item.descricao}</p>
         </div>
         
-        <div className="grid grid-cols-2 gap-4">
-          <div className="flex items-center gap-2">
-            <Package className="h-4 w-4 text-muted-foreground" />
-            <div>
-              <p className="text-sm text-muted-foreground">Estoque</p>
-              <Badge 
-                variant={item.estoque > 0 ? "default" : "destructive"}
-                className={item.estoque > 0 ? "bg-success hover:bg-success/80" : ""}
-              >
-                {item.estoque} unid.
-              </Badge>
-            </div>
-          </div>
-          
-          <div className="flex items-center gap-2">
-            <DollarSign className="h-4 w-4 text-muted-foreground" />
-            <div>
-              <p className="text-sm text-muted-foreground">Preço</p>
-              <p className="font-semibold text-foreground">
-                R$ {item.preco.toFixed(2).replace('.', ',')}
-              </p>
-            </div>
+        <div className="flex items-center gap-2">
+          <Package className="h-4 w-4 text-muted-foreground" />
+          <div>
+            <p className="text-sm text-muted-foreground">Estoque</p>
+            <Badge 
+              variant={item.estoque > 0 ? "default" : "destructive"}
+              className={item.estoque > 0 ? "bg-success hover:bg-success/80" : ""}
+            >
+              {item.estoque} unid.
+            </Badge>
           </div>
         </div>
         
